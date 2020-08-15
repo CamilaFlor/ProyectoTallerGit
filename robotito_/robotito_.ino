@@ -89,11 +89,11 @@ void loop() {
 
   }
   // si sensor derecho esta en linea- - SE CORRIÓ A LA IZQUIERDA
-  if (valorsensorIzq == fuera && valorsensorMed == fuera && valorsensorDer == enlinea ||valorsensorIzq == fuera && valorsensorMed == enlinea && valorsensorDer == enlinea ) {
+  if (valorsensorIzq == fuera && valorsensorMed == fuera && valorsensorDer == enlinea || valorsensorIzq == fuera && valorsensorMed == enlinea && valorsensorDer == enlinea ) {
 
-    //----motor izquierdo apagado
-    analogWrite(enb, LOW);
-    digitalWrite(in3, LOW);
+    //----motor izquierdo reversa
+    analogWrite(enb, speed);
+    digitalWrite(in3, HIGH);
     digitalWrite(in4, LOW);
 
     //----motor DER funcionando
@@ -103,41 +103,41 @@ void loop() {
   }
 
   // si sensor izquierdo esta en linea- - SE CORRIÓ A LA DERECHA
-  if (valorsensorIzq == enlinea && valorsensorMed == fuera && valorsensorDer == fuera ||valorsensorIzq == enlinea && valorsensorMed == enlinea && valorsensorDer == fuera) {
+  if (valorsensorIzq == enlinea && valorsensorMed == fuera && valorsensorDer == fuera || valorsensorIzq == enlinea && valorsensorMed == enlinea && valorsensorDer == fuera) {
 
     //----motor IZQ funcionando
     analogWrite(enb, speed);
     digitalWrite(in3, LOW);
     digitalWrite(in4, HIGH);
 
-    //----motor derecho apagado
-    analogWrite(ena, LOW);
+    //----motor derecho reversa
+    analogWrite(ena, speed);
     digitalWrite(in1, LOW);
-    digitalWrite(in2, LOW);
+    digitalWrite(in2, HIGH);
   }
 
 
 
-  // si ninguno detecta linea- retrocede  NO SIRVE
+  // si ninguno detecta linea- retrocede > NO SIRVE
   if (valorsensorIzq == fuera && valorsensorMed == fuera && valorsensorDer == fuera ) {
-//    //----motor izquierdo backwards
-//    analogWrite(enb, speed);
-//    digitalWrite(in3, HIGH);
-//    digitalWrite(in4, LOW);
-//    //----motor derecho backwards
-//    analogWrite(ena, speed);
-//    digitalWrite(in1, LOW);
-//    digitalWrite(in2, HIGH);
-//    delay(50); //100ms
+    //    //----motor izquierdo backwards
+    //    analogWrite(enb, speed);
+    //    digitalWrite(in3, HIGH);
+    //    digitalWrite(in4, LOW);
+    //    //----motor derecho backwards
+    //    analogWrite(ena, speed);
+    //    digitalWrite(in1, LOW);
+    //    digitalWrite(in2, HIGH);
+    //    delay(50); //100ms
 
-    analogWrite(enb, LOW);
-    digitalWrite(in3, LOW);
+    analogWrite(enb, speed);
+    digitalWrite(in3, HIGH);
     digitalWrite(in4, LOW);
 
     //----motor derecho apagado
-    analogWrite(ena, LOW);
+    analogWrite(ena, speed);
     digitalWrite(in1, LOW);
-    digitalWrite(in2, LOW);
+    digitalWrite(in2, HIGH);
   }
 
   // si todos detectan linea- - DETECTA POSIBLES CAMINOS
@@ -150,7 +150,7 @@ void loop() {
     //----motor derecho apagado
     analogWrite(ena, LOW);
     digitalWrite(in1, LOW);
-    digitalWrite(in2, LOW);
+    digitalWrite(in2, HIGH);
 
     //---------indicacion x blue
     if ( ModuloHC05.available() ) { //si llega algo por blue
@@ -196,6 +196,5 @@ void loop() {
 
       }
     }
-
   }
 }
