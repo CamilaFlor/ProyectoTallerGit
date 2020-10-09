@@ -1,5 +1,5 @@
-# ProyectoTallerGit
+# ProyectoTaller
 
-## Proyecto de robotito
+
 
 
