@@ -21,7 +21,7 @@ void setup() {
   size(800, 600); 
   background(0);
 
-  ModuloHC05=new Serial(this, Serial.list()[3], 9600); //inicializar puerto serial
+  ModuloHC05=new Serial(this, Serial.list()[2], 9600); //inicializar puerto serial
   printArray(Serial.list());//para saber cual puerto es, lista los puertos disponibles
 
   begin = millis(); //para el contador
