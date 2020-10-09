@@ -1,0 +1,13 @@
+*Arduino:
+- Envío de dato a processing cuando el robot frena en una bifurcación.
+- Recepción de dato que envía processing al finalizar la votación.
+
+*Processing:
+- Conexión con bluetooth de arduino
+- Recepción de dato que manda arduino cuando el robot frena.
+- Timer de 10 segundos desde que frenó el robot. Lee _Status al finalizar el tiempo.
+- Envío dato de votación a Arduino.
+- Llama a _zero al finalizar.
+
+
+*Flowchart: https://miro.com/app/board/o9J_klluwOQ=/
